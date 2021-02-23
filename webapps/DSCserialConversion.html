@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<head>
+    <title>DSC Serial Conversion</title>
+        <script type="text/javascript">
+        function convertSerial() {
+            var old_serial = String(document.getElementById("Old_Serial").value);
+            var temp = old_serial[1].valueOf() + "" + old_serial[2].valueOf() + "" + old_serial[3].valueOf();
+            document.getElementById("New_Serial").value = (old_serial[0] + "" + parseInt(temp, 16));    
+        }
+    </script>
+    </head>
+    <body>
+        <main style="margin: 2vw;">
+            <a href="/">Hammond-Nicholas.github.io</a>
+                <h1>Convert DSC Serial Number</h1>
+            <form action="javascript:convertSerial();" style="margin:2vw;">
+                6-Character Serial <br /><input type="text" id="Old_Serial" placeholder="Example 26DA4A"/> <br />
+                Converted Serial <br /><input type="text" id="New_Serial" placeholder="Example 21754" readonly  /><br />
+                <input type="submit"/>
+            </form>
+            <p>
+                <b>Description:</b><br />
+                Convert new 6-character serial numbers to older 5-character serial numbers for RF receivers that only accept 5 characters. <br />
+                This script automated the process found <a href="https://help.aartech.ca/portal/en/kb/articles/procedure-for-converting-dsc-6-digit-serial-numbers-to-5-digit-serial-numbers">here</a>.
+            </p>
+        </main>
+    </body>
+</html>
